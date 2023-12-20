@@ -8,12 +8,10 @@
                                          :exclusions  [org.slf4j/slf4j-api info.sunng/ring-jetty9-adapter-http3]}
          ring-basic-authentication/ring-basic-authentication {:mvn/version "1.2.0"}
          }
-
  :paths ["src" "resources" "src-fiddles"]
-
  :aliases
  {:dev
-  {:extra-paths   ["src-dev"]
+  {:extra-paths   ["src-dev" "src-triage"]
    :override-deps {com.hyperfiddle/electric {:local/root "vendor/electric"}
                    com.hyperfiddle/rcf      {:local/root "vendor/rcf"}}
    :extra-deps    {binaryage/devtools   {:mvn/version "1.0.7"}
@@ -27,7 +25,8 @@
                    ]}
 
   :build
-  ;; use `clj -X:build build-client`, NOT -T! build/app classpath contamination cannot be prevented
+  ; use `clj -X:build build-client`, NOT -T! build/app classpath contamination cannot be prevented
+  ; see https://www.notion.so/hyperfiddle/logger-epic-303a8024a8fd4b09a40a67871d3161cf?pvs=4
   {:extra-paths ["src-build"]
    :ns-default  build
    :extra-deps
@@ -41,10 +40,9 @@
   {:extra-paths ["src-prod"]}
 
 
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-  ;;                 Fiddle Aliases                      ;;
-  ;; Add your custom extra deps and configurations below ;;
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;
+  ;; Fiddle Aliases ;;
+  ;;;;;;;;;;;;;;;;;;;;
 
   :hello-fiddle {}
 
@@ -55,4 +53,17 @@
     markdown-clj/markdown-clj {:mvn/version "1.11.7"}
     io.github.nextjournal/clojure-mode {:git/sha "5d88847aecd253e047f36565e0455bfec7f4964d"}}}
 
-  }}
+  :datomic-browser
+  {:extra-deps
+   {com.datomic/peer {:mvn/version "1.0.7075"}}}
+
+  :dustingetz
+  {:extra-deps
+   {com.datomic/peer {:mvn/version "1.0.7075"}
+    com.hyperfiddle/hfql {:local/root "vendor/hfql"}}}
+
+  :hfql-demo
+  {:extra-paths ["src-triage"]
+   :extra-deps
+   {com.datomic/peer {:mvn/version "1.0.7075"}
+    com.hyperfiddle/hfql {:local/root "vendor/hfql"}}}}}
