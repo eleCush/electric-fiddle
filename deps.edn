@@ -25,8 +25,7 @@
                    ]}
 
   :build
-  ; use `clj -X:build build-client`, NOT -T! build/app classpath contamination cannot be prevented
-  ; see https://www.notion.so/hyperfiddle/logger-epic-303a8024a8fd4b09a40a67871d3161cf?pvs=4
+  ;; use `clj -X:build build-client`, NOT -T! build/app classpath contamination cannot be prevented
   {:extra-paths ["src-build"]
    :ns-default  build
    :extra-deps
@@ -40,9 +39,10 @@
   {:extra-paths ["src-prod"]}
 
 
-  ;;;;;;;;;;;;;;;;;;;;
-  ;; Fiddle Aliases ;;
-  ;;;;;;;;;;;;;;;;;;;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+  ;;                 Fiddle Aliases                      ;;
+  ;; Add your custom extra deps and configurations below ;;
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
   :hello-fiddle {}
 
@@ -60,10 +60,15 @@
   :dustingetz
   {:extra-deps
    {com.datomic/peer {:mvn/version "1.0.7075"}
-    com.hyperfiddle/hfql {:local/root "vendor/hfql"}}}
+    com.hyperfiddle/hfql {:local/root "vendor/hfql"}
+    markdown-clj/markdown-clj {:mvn/version "1.11.4"}
+    nextjournal/clojure-mode  {:git/url "https://github.com/nextjournal/clojure-mode" :git/sha "ac038ebf6e5da09dd2b8a31609e9ff4a65e36852"}}}
 
   :hfql-demo
   {:extra-paths ["src-triage"]
    :extra-deps
    {com.datomic/peer {:mvn/version "1.0.7075"}
-    com.hyperfiddle/hfql {:local/root "vendor/hfql"}}}}}
+    com.hyperfiddle/hfql {:local/root "vendor/hfql"}}}
+
+  }}
+
