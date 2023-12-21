@@ -61,8 +61,8 @@
   {:extra-deps
    {com.datomic/peer {:mvn/version "1.0.7075"}
     com.hyperfiddle/hfql {:local/root "vendor/hfql"}
-    markdown-clj/markdown-clj {:mvn/version "1.11.4"}
-    nextjournal/clojure-mode  {:git/url "https://github.com/nextjournal/clojure-mode" :git/sha "ac038ebf6e5da09dd2b8a31609e9ff4a65e36852"}}}
+    markdown-clj/markdown-clj {:mvn/version "1.11.7"}
+    io.github.nextjournal/clojure-mode {:git/sha "5d88847aecd253e047f36565e0455bfec7f4964d"}}}
 
   :hfql-demo
   {:extra-paths ["src-triage"]
