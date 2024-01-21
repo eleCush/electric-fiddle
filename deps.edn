@@ -25,6 +25,32 @@
                                   ]}}
    :jvm-opts      ["-XX:-OmitStackTraceInFastThrow" ; For RCF
                    ]}
+  :shomp003
+  { :extra-paths   ["src-dev"]
+    :extra-deps    {ring/ring-jetty-adapter {:mvn/version "1.11.0"} ; same as `:jetty` alias
+                   binaryage/devtools   {:mvn/version "1.0.7"}
+                   thheller/shadow-cljs {:mvn/version "2.26.2"}
+
+
+                   com.xtdb/xtdb-core {:mvn/version "1.23.0"}
+                   com.xtdb/xtdb-rocksdb {:mvn/version "1.23.0"}
+
+                   cljs-ajax/cljs-ajax {:mvn/version "0.8.4"}
+                   clj-http/clj-http {:mvn/version "3.12.3"}
+                   cryptohash-clj/cryptohash-clj {:mvn/version "0.1.11"}
+                   cheshire/cheshire {:mvn/version "5.12.0"}
+                   compojure/compojure {:mvn/version "1.6.1"}
+                   ring-range-middleware/ring-range-middleware {:mvn/version "0.1.0"}
+
+
+
+                   io.github.clojure/tools.build
+                   {:mvn/version "0.9.6"
+                    :exclusions  [com.google.guava/guava ; Guava version conflict between tools.build and clojurescript.
+                                  org.slf4j/slf4j-nop    ; clashes with app logger
+                                  ]}}
+   :jvm-opts      ["-XX:-OmitStackTraceInFastThrow" ; For RCF
+                   ]}
 
   :build
   ;; use `clj -X:build build-client`, NOT -T! build/app classpath contamination cannot be prevented
